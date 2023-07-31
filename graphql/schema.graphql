@@ -1,0 +1,94 @@
+type ImageCollection {
+  id: String
+  url: String
+}
+
+type Item {
+  brand: String
+  id: String
+  name: String
+  quantity: Int
+  selectedSize: String
+}
+
+type Mobile {
+  country: String
+  countryCode: String
+  dialCode: String
+  value: String
+}
+
+type Checkout {
+  address: String
+  email: String
+  fullname: String
+  isDone: Boolean
+  isInternational: Boolean
+  mobile: Mobile
+}
+
+# input ProductInput {
+#   availableColors: [String]
+#   brand: String!
+#   dateAdded: Float
+#   description: String
+#   id: String
+#   image: String
+#   imageCollections: [ImageCollection]
+#   isFeatured: Boolean
+#   isRecommended: Boolean
+#   maxQuantity: Float
+#   name: String
+#   price: Float
+#   keywords: [String]
+#   quantity: Float
+#   name_lower: String
+#   sizes: [String]
+# }
+
+# type Product {
+#   availableColors: [String]
+#   brand: String!
+#   dateAdded: Float
+#   description: String
+#   id: String
+#   image: String
+#   imageCollections: [ImageCollection]
+#   isFeatured: Boolean
+#   isRecommended: Boolean
+#   maxQuantity: Float
+#   name: String
+#   price: Float
+#   keywords: [String]
+#   quantity: Float
+#   name_lower: String
+#   sizes: [String]
+# }
+
+input OrderInput {
+  authId: String
+  orderId: String
+  subtotal: Float
+  time: Float
+  date: Float
+  item: Item
+  checkout: Checkout
+}
+
+type Order {
+  authId: String
+  orderId: String
+  subtotal: Float
+  time: Float
+  date: Float
+  item: Item
+  checkout: Checkout
+}
+
+type Query {
+  getOrders: [Order]
+}
+
+type Mutation {
+  addOrder(order: OrderInput!): Order
+}
